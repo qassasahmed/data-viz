@@ -4,7 +4,7 @@ This tutorial introduces beginners to basic data visualization using Python, foc
 
 ---
 
-## 📚 Key Concepts
+##  Key Concepts
 
 ### What is a Dataset?
 
@@ -78,7 +78,7 @@ Tabular data is data organized in a table with rows and columns. Here are common
 
 ---
 
-## 💻 Example Code Breakdown
+##  Example Code Breakdown
 
 Let's break down the key parts of our bar chart tutorial:
 
@@ -159,7 +159,7 @@ plt.bar(x, charlie_scores, bottom=alice_scores + bob_scores, label='Charlie')
 
 ---
 
-## 📊 Matplotlib vs Seaborn Comparison
+##  Matplotlib vs Seaborn Comparison
 
 | Feature | Matplotlib | Seaborn |
 |---------|-----------|---------|
@@ -193,7 +193,7 @@ plt.bar(x, charlie_scores, bottom=alice_scores + bob_scores, label='Charlie')
 
 ---
 
-## 📊 Types of Bar Charts Covered
+##  Types of Bar Charts Covered
 
 ### 1. Simple Bar Chart
 Best for comparing single values across categories.
@@ -225,7 +225,7 @@ All types can be displayed horizontally for better label readability.
 
 ---
 
-## 🎯 Learning Outcomes
+##  Learning Outcomes
 
 By completing this lab, you will:
 - ✅ Understand what datasets and DataFrames are
