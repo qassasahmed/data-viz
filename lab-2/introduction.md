@@ -82,5 +82,3 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 ```
-
-This combination of libraries provides a powerful toolkit for data science projects, from data loading and manipulation to analysis and visualization.
