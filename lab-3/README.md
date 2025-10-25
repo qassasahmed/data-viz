@@ -1,102 +1,71 @@
-Lab 3 — Exploratory Data Analysis (Beginner) and Interactive Dashboard
+# Interactive Data Visualization Dashboard
 
-Overview
+## Introduction to Interactive Plotting with Plotly and Dash
 
-This lab introduces basic exploratory data analysis (EDA) and shows how to create and share interactive visualizations using Plotly and Dash. It is targeted at beginners who completed Lab 1 and Lab 2 and are ready to move from static charts to interactive exploration.
+Interactive plotting is a powerful way to explore and present data dynamically. **Plotly** is a graphing library that creates interactive, web-based visualizations. It supports various chart types like bar charts, scatter plots, and box plots, allowing users to hover for details, zoom, and filter data in real-time. **Dash** is a productive Python framework for building web applications, particularly useful for data visualization dashboards. It integrates seamlessly with Plotly to create interactive web apps without needing extensive web development knowledge.
 
-Files in this folder
+Key benefits include:
+- **Interactivity**: Users can interact with charts (e.g., hover, click, zoom) to gain deeper insights.
+- **Web-based**: Dashboards run in browsers, making them accessible and shareable.
+- **Python-native**: Build complex apps using Python, leveraging libraries like Pandas for data manipulation.
+- **Customization**: Easily add callbacks for dynamic updates based on user input.
 
-- `eda_and_dashboard.ipynb`: Jupyter notebook with step-by-step EDA, method explanations, and Plotly examples.
-- `app.py`: Minimal Dash app that demonstrates simple interactivity (dropdown + slider) and how callbacks update charts.
-- `requirements.txt`: Python packages needed to run the notebook and app.
+This project demonstrates creating an interactive dashboard with multiple chart types using the Tips dataset from Seaborn.
 
-Prerequisites
+## Project Overview
 
-- Python 3.8+
-- Basic familiarity with pandas, matplotlib, and seaborn (covered in Lab 1 & Lab 2)
+This notebook (`interactive_dashboard.ipynb`) loads the Tips dataset and creates five interactive visualizations:
+- Bar chart: Average tip by day
+- Pie chart: Gender distribution
+- Donut chart: Smoker distribution
+- Scatter plot: Total bill vs tip, colored by day
+- Box plot: Tip distribution by day
 
-Install dependencies (PowerShell)
+The dashboard is built using Dash and runs on a local server for interactive exploration.
 
-```powershell
-python -m pip install -r lab-3\requirements.txt
-```
+## Understanding Box Plots in Detail
 
-Run the notebook
+A box plot (also known as a box-and-whisker plot) is a statistical visualization that summarizes the distribution of a dataset. It displays key statistical measures and helps identify outliers, variability, and central tendency.
 
-- Start Jupyter: `jupyter notebook` and open `lab-3/eda_and_dashboard.ipynb`.
+### Components of a Box Plot:
+- **Box**: Represents the interquartile range (IQR), containing the middle 50% of the data.
+  - Bottom of the box: First quartile (Q1, 25th percentile)
+  - Middle line: Median (Q2, 50th percentile)
+  - Top of the box: Third quartile (Q3, 75th percentile)
+- **Whiskers**: Extend from the box to show the range of the data.
+  - Lower whisker: Typically Q1 - 1.5 × IQR (minimum value within this range)
+  - Upper whisker: Typically Q3 + 1.5 × IQR (maximum value within this range)
+- **Outliers**: Data points beyond the whiskers, plotted as individual dots or symbols.
 
-Run the dashboard
+### How to Read a Box Plot:
+1. **Central Tendency**: The median line shows the middle value. Compare medians across groups to see differences.
+2. **Spread**: The box height indicates variability. Wider boxes mean more spread in the middle 50% of data.
+3. **Skewness**: If the median is closer to Q1 or Q3, the data is skewed left or right.
+4. **Outliers**: Points outside whiskers highlight anomalies that may need investigation.
+5. **Comparisons**: When grouped (e.g., by day), box plots reveal patterns like which groups have higher/lower medians or more outliers.
 
-```powershell
-python lab-3\app.py
-```
+### How Box Plots Help Understand Data:
+- **Summarize Distributions**: Quickly grasp key stats without raw data.
+- **Identify Patterns and Anomalies**: Spot trends, variability, and outliers across categories.
+- **Compare Groups**: Easily compare distributions (e.g., tip amounts by day) to find differences.
+- **Guide Further Analysis**: Outliers may indicate errors or interesting cases; variability can suggest areas for deeper study.
+- **Data Quality Check**: Detect skewness or unusual spreads that might affect modeling.
 
-Open `http://127.0.0.1:8050` in your browser.
+In this dashboard, the box plot shows tip distributions by day, helping analyze daily tipping consistency and identify days with more variability or outliers.
 
-Introduction to Plotly and Dash
+## How to Run
 
-Plotly
-- Plotly (Plotly Express) is a high-level Python library for creating interactive charts. Charts produced with Plotly support zooming, panning, hover tooltips, and can be exported as standalone HTML files for sharing.
-- Use Plotly when you want interactive exploration: hover to inspect values, zoom into regions of interest, and export sharable interactive reports.
+1. Ensure Python is installed.
+2. Install dependencies: Run `pip install -r requirements.txt` or execute the pip install cell in the notebook.
+3. Open `interactive_dashboard.ipynb` in Jupyter Notebook or VS Code.
+4. Run all cells in order.
+5. The Dash app will start at http://127.0.0.1:8051/. Open in a browser to interact with the dashboard.
 
-Dash
-- Dash is a minimal web framework built on top of Flask and Plotly that makes it easy to create interactive dashboards using Python only (no JavaScript required).
-- Dash apps are composed of layout components (controls and graphs) plus callback functions that react to user inputs and update the visuals.
-- Use Dash when you want a small interactive app with filters, linked charts, or a simple dashboard to share with others.
+## Requirements
 
-Lab outline and steps
+- pandas
+- seaborn
+- plotly
+- dash
 
-This section explains the structure of the lab and the recommended sequence of steps for learners.
-
-1) Introduction and objectives
-	- Read the learning objectives and get familiar with the dataset (Seaborn `tips`).
-
-2) Environment and imports
-	- Install and import required libraries, set plotting styles, and explain what each import is for.
-
-3) Load and inspect the data
-	- Use `sns.load_dataset('tips')`, `df.shape`, `df.head()`, `df.info()`, and `df.describe()` to get a feel for the data.
-
-4) Data cleaning and feature engineering
-	- Add a `tip_pct` column, check for missing values, and cast types where necessary. Explain each operation in plain language.
-
-5) Univariate analysis
-	- Plot histograms and boxplots to inspect distributions and outliers. Explain when to use histogram vs boxplot.
-
-6) Bivariate analysis
-	- Scatter plots with regression line, colored by category (day/time). Compute and interpret a simple correlation matrix.
-
-7) Multivariate exploration
-	- Pairplots and correlation heatmap to spot multivariate patterns.
-
-8) Interactive charts with Plotly
-	- Build interactive scatter and bar charts using Plotly Express. Demonstrate hover data and saving to HTML.
-
-9) Minimal dashboard with Dash
-	- Walk through `app.py`: layout components (dropdown, slider), callback wiring, and how filters update charts. Run the app locally.
-
-10) Exercises
-	- Short, guided exercises to reinforce core skills (compute tip_pct stats, build scatter colored by day, extend the Dash app).
-
-11) Summary and next steps
-	- Suggestions for additional learning (interactive dashboards, simple model fitting, or larger datasets).
-
-Recommended learning flow and time allocation (approximate)
-
-- Inspect data and feature engineering: 10-15 minutes
-- Univariate + bivariate plots: 20-25 minutes
-- Multivariate views + correlations: 10-15 minutes
-- Plotly interactive charts and saving HTML: 10-15 minutes
-- Dash app walkthrough and running locally: 15-25 minutes
-
-Exercises
-
-1. Compute mean and median of `tip_pct` and plot a histogram. Describe the distribution.
-2. Create a scatter plot of `total_bill` vs `tip` colored by `day`. Which day tends to have higher tips?
-3. Run the Dash app in `app.py`, use the filters, and describe what changes when you select different days or party sizes.\\
-4. (Optional) Extend `app.py` by adding a checkbox to toggle a regression line on the scatter plot.
-
-Notes
-
-- The notebook saves interactive HTML files in the `lab-3` folder. You can open them in a browser and share them as standalone interactive reports.
-- If you want a completely self-contained dashboard without installing dependencies, export Plotly figures to HTML and share the HTML file instead of running Dash.
+For more details, see the notebook's code explanations.
