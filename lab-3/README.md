@@ -68,4 +68,6 @@ In this dashboard, the box plot shows tip distributions by day, helping analyze 
 - plotly
 - dash
 
-For more details, see the notebook's code explanations.
+For more details, see the notebook's code explanations.  
+
+qassas.ahmed@mau.edu.eg 
