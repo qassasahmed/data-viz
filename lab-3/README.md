@@ -71,6 +71,8 @@ A typical box plot consists of several key elements, each representing specific 
    - Outliers may indicate measurement errors, unusual observations, or important anomalies.
 
    ![Box plot with outlier](https://upload.wikimedia.org/wikipedia/commons/0/0b/Boxplot_with_outlier.png)
+   
+   https://upload.wikimedia.org/wikipedia/commons/0/0b/Boxplot_with_outlier.png
 
    *Figure: Anatomy of a box plot, showing the box (IQR), whiskers, median, and an outlier.*
 
