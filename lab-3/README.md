@@ -54,9 +54,11 @@ A typical box plot consists of several key elements, each representing specific 
 
    # Show the plot
    plt.show()
-```
-![Result](Figure_1.png)
-2. **The Whiskers**:
+```  
+
+![Result](Figure_1.png)   
+
+2. **Whiskers**:
    - Extend from the box to show the range of the data, typically excluding outliers.
    - **Lower whisker**: Extends from Q1 down to the smallest data point within 1.5 × IQR of Q1.
    - **Upper whisker**: Extends from Q3 up to the largest data point within 1.5 × IQR of Q3.
