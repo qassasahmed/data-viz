@@ -41,6 +41,5 @@ it moves `'day'` back into the table as a **normal column** instead of leaving i
 
 ---
 
-**In short:**
-> [Info]
+>[!Important]
 > `reset_index()` turns the grouped key (like `'day'`) back into a regular column — making your DataFrame look like a clean, well-structured table again.

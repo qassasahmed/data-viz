@@ -33,13 +33,29 @@ A box plot is a graphical representation that visually summarizes the central te
 ### Components of a Box Plot
 A typical box plot consists of several key elements, each representing specific statistical measures:
 
-1. **The Box (Interquartile Range - IQR)**:
-   - Represents the middle 50% of the data points.
-   - **Bottom of the box**: First Quartile (Q1) - 25th percentile.
-   - **Middle line inside the box**: Median (Q2) - 50th percentile, also called the second quartile.
-   - **Top of the box**: Third Quartile (Q3) - 75th percentile.
-   - The height of the box (Q3 - Q1) represents the IQR, which measures the spread of the middle half of the data.
+1. **The Box (Interquartile Range - IQR)**
+   * Shows where the middle 50% of all data points lie.
+   * **Bottom of the box (Q1)**: The value below which 25% of the data fall. For example, if **Q1 = 3**, it means one-quarter of the data are less than or equal to 3.
+   * **Middle line inside the box (Q2 or Median)**: The midpoint — half the data are below this value, and half are above.
+   * **Top of the box (Q3)**: The value below which 75% of the data fall.
+   * The **height of the box (Q3 - Q1)** is the **Interquartile Range (IQR)** — it shows how spread out the middle half of the data is.  
+```Python
+   import matplotlib.pyplot as plt
 
+   # Example dataset
+   data = [2, 3, 3, 4, 5, 6, 7, 8, 9, 10]
+
+   # Create the boxplot
+   plt.boxplot(data)
+
+   # Add labels and title
+   plt.title("Simple Boxplot Example")
+   plt.ylabel("Values")
+
+   # Show the plot
+   plt.show()
+```
+![Result](Figure_1.png)
 2. **The Whiskers**:
    - Extend from the box to show the range of the data, typically excluding outliers.
    - **Lower whisker**: Extends from Q1 down to the smallest data point within 1.5 × IQR of Q1.
@@ -51,6 +67,10 @@ A typical box plot consists of several key elements, each representing specific 
    - Typically plotted as individual dots, circles, or asterisks.
    - Defined as values less than Q1 - 1.5 × IQR or greater than Q3 + 1.5 × IQR.
    - Outliers may indicate measurement errors, unusual observations, or important anomalies.
+
+   ![Box plot with outlier](https://upload.wikimedia.org/wikipedia/commons/0/0b/Boxplot_with_outlier.png)
+
+   *Figure: Anatomy of a box plot, showing the box (IQR), whiskers, median, and an outlier.*
 
 4. **Additional Elements (in some implementations)**:
    - **Notches**: Narrowing of the box around the median to indicate confidence intervals.
