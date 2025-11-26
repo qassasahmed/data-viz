@@ -1,4 +1,7 @@
 # Interactive Heatmap and Correlation Matrix Visualization
+Dr. Amr Amin  
+Ahmed Alqassas 
+Autumn 2025-2026  
 
 ## Introduction to Heatmaps and Correlation Matrices
 
